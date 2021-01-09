@@ -15,6 +15,7 @@ body {
 
 #submitName {
     background-color: var(--pri-col);
+    color: var(--sec-col);
 }
 
 main {
@@ -23,11 +24,10 @@ main {
   flex-wrap: wrap;
 }
 
-#gameplay {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+#game a {
+    margin: 2.5px;
+    background-color: var(--pri-col);
+    color: var(--sec-col);
 }
 
 #copyright {
