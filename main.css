@@ -1,0 +1,22 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+#gameplay {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#copyright {
+    justify-content: center;
+}
