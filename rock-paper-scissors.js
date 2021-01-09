@@ -17,16 +17,16 @@ function playRound(playerSelection, computerSelection) {
 
     // if index of playerSelection in plays is 1 more or 2 less than index of computerSelection in plays, then computer wins
     if (p_index == c_index + 1 || p_index == c_index - 2) {
-        result = 'Player';
+        result = 'Player wins';
     }
 
     // else if index of playerSelection in plays is 1 less or 2 more than index of computerSelection in plays, then computer wins
     else if (p_index == c_index - 1 || p_index == c_index + 2) {
-        result = 'Computer';
+        result = 'Ominini wins';
     }
 
     else {
-        result = "Draw";
+        result = "It's a Draw";
     }
 
     return result;
@@ -35,34 +35,44 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     winners = [];
     player = 0;
-    computer = 0;
+    ominini = 0;
 
     for (let i=1; i<=5; i++) {
         const playerSelection = prompt("Play a round: ");
         const computerSelection = computerPlay();
-        console.log(`Round ${i}: Player plays ${playerSelection}; Computer plays ${computerSelection}`);
+        console.log(`Round ${i}: Player plays ${playerSelection}; Ominini plays ${computerSelection}`);
         winner = playRound(playerSelection, computerSelection);
-        console.log(`${winner} wins!`);
+        console.log(winner);
+        const rounds = document.querySelector("#rounds");
+        const roundWinner = document.createElement("li");
+        roundWinner.classList.add("round-winner");
+        roundWinner.textContent = `${winner}: ${playerSelection} vs ${computerSelection}`;
+        rounds.appendChild(roundWinner);
         switch(winner) {
-            case "Player":
+            case "Player wins":
                 player++;
                 break;
-            case "Computer":
-                computer++;
+            case "Ominini wins":
+                ominini++;
                 break;
         }
         winners.push(winner);
     }
-    console.log(`Player: ${player}\nComputer: ${computer}`);
-    if (player > computer) {
+    console.log(`Player: ${player}\nOminini: ${ominini}`);
+    if (player > ominini) {
         return "You win!";
     }
-    else if (computer > player) {
-        return "Computer wins!";
+    else if (ominini > player) {
+        return "Ominini wins!";
     }
     else {
         return "It's a draw";
     }
 }
 
-alert(game());
+gameWinner = game();
+const insertWinner = document.querySelector("#winner");
+const winnerName = document.createElement("p");
+winnerName.classList.add("flow-text");
+winnerName.textContent = gameWinner;
+insertWinner.appendChild(winnerName);

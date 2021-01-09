@@ -1,7 +1,20 @@
+:root {
+    --pri-col: #212529;
+    --sec-col: #ee6e73;
+}
+
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+}
+
+#name {
+    max-width: 200px;
+}
+
+#submitName {
+    background-color: var(--pri-col);
 }
 
 main {
@@ -19,4 +32,9 @@ main {
 
 #copyright {
     justify-content: center;
+}
+
+#footer {
+    background-color: var(--pri-col);
+    border-top: 2.5px solid var(--sec-col);
 }
