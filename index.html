@@ -20,12 +20,9 @@
         <p class="flow-text">
           Can you defeat Ominini in a game of <strong>5 rounds?</strong>
         </p>
-        <blockquote id="randomQuote">
-          “If you know the enemy and know yourself, you need not fear the result
-          of a hundred battles. If you know yourself but not the enemy, for
-          every victory gained you will also suffer a defeat. If you know
-          neither the enemy nor yourself, you will succumb in every battle.”
-          <p>―Sun-Tzu, The Art of War.</p>
+        <blockquote id="displayQuote" class="blockquote">
+          <p id="randomQuote"></p>
+          <figcaption id="quoteAuthor"></figcaption>
         </blockquote>
         <br />
         <form id="player" class="input-field">
@@ -51,7 +48,7 @@
         <div id="resultCard">
           <p id="round" class="flow-text"></p>
           <p id="score" class="flow-text"></p>
-          <p id="winner" class= "card-title"></p>
+          <p id="winner" class="card-title"></p>
           <a id="newGame"></a>
         </div>
       </div>
@@ -63,5 +60,6 @@
     </footer>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://www.ominini.com/js/sunTzuQuotes.js"></script>
   <script id="launchGame" src="rock-paper-scissors.js"></script>
 </html>
