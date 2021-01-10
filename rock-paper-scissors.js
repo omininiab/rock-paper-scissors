@@ -1,7 +1,7 @@
-let winners = [];
 let i = 1;
 let player = 0;
 let ominini = 0;
+let playerName = "";
 
 function computerPlay() {
   const plays = ["rock", "paper", "scissors"]; // options
@@ -22,7 +22,7 @@ function playRound(playerSelection, computerSelection) {
 
   // if index of playerSelection in plays is 1 more or 2 less than index of computerSelection in plays, then computer wins
   if (p_index == c_index + 1 || p_index == c_index - 2) {
-    result = "Player wins";
+    result = "You win";
   }
 
   // else if index of playerSelection in plays is 1 less or 2 more than index of computerSelection in plays, then computer wins
@@ -65,22 +65,19 @@ function playerOptions() {
     button.onclick = function () {
       if (i <= 5) {
         winner = playRound(button.id, computerPlay());
-        const game = document.querySelector("#game");
 
-        const currentRound = document.createElement("p");
-        currentRound.classList.add("flow-text");
-        currentRound.textContent = `Round ${i}: ${winner}`;
-        game.appendChild(currentRound);
-        
-        winners.push(winner);
         switch (winner) {
-          case "Player wins":
+          case "You win":
             player++;
             break;
           case "Ominini wins":
             ominini++;
             break;
         }
+        const round = document.querySelector("#round");
+        round.textContent = `Round ${i}/5 : ${winner}`;
+        const score = document.querySelector("#score");
+        score.textContent = `${playerName} ${player} : ${ominini} Ominini`;
         i++;
       }
       if (i == 6) {
@@ -91,21 +88,33 @@ function playerOptions() {
 }
 
 function gameplay() {
-  if (i < 5) {
+  if (i < 5 && playerName != "") {
+    console.log(playerName)
     playerOptions();
   } else if (i == 6) {
-    i++
+    i++;
     if (ominini > player) {
       gameWinner = "Ominini wins";
     } else if (ominini < player) {
-      gameWinner = "Player wins";
+      gameWinner = `${playerName} wins`;
     } else {
       gameWinner = "It's a draw";
     }
-    const insertWinner = document.querySelector("#winner");
-    const winnerName = document.createElement("h3");
-    winnerName.textContent = `Final Result: ${gameWinner}`;
-    insertWinner.appendChild(winnerName);
+    const winner = document.querySelector("#winner");
+    winner.textContent = `Final Result: ${gameWinner}`;
   }
 }
-gameplay();
+
+const submit = document.querySelector("#submitName");
+submit.onclick = function () {
+  playerName = document.getElementById("name").value;
+  if (playerName.trim() === "") {
+    playerName = "Player";
+  } else {
+    playerName = playerName.toUpperCase();
+  }
+  gameplay();
+  return false;
+};
+
+

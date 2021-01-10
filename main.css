@@ -1,6 +1,6 @@
 :root {
-    --pri-col: #212529;
-    --sec-col: #ee6e73;
+  --pri-col: #212529;
+  --sec-col: #26a69a;
 }
 
 body {
@@ -9,32 +9,46 @@ body {
   flex-direction: column;
 }
 
+blockquote {
+  border-left: 5px solid var(--sec-col);
+}
+
 #name {
-    max-width: 200px;
+  max-width: 200px;
 }
 
 #submitName {
-    background-color: var(--pri-col);
-    color: var(--sec-col);
+  background-color: var(--pri-col);
+  color: var(--sec-col);
 }
 
 main {
-  flex: 1 0 auto;
-  flex-direction: column;
+  display: flex;
+  min-height: 20vh;
+  flex-direction: row;
   flex-wrap: wrap;
 }
 
+.main-item {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  min-width: 200px;
+  line-height: 1px;
+}
+
 #game a {
-    margin: 2.5px;
-    background-color: var(--pri-col);
-    color: var(--sec-col);
+  margin: 2.5px;
+  background-color: var(--pri-col);
+  color: var(--sec-col);
 }
 
 #copyright {
-    justify-content: center;
+  justify-content: center;
 }
 
 #footer {
-    background-color: var(--pri-col);
-    border-top: 2.5px solid var(--sec-col);
+  bottom: 0;
+  background-color: var(--pri-col);
+  border-top: 2.5px solid var(--sec-col);
 }

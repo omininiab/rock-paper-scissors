@@ -17,7 +17,9 @@
     <header id="header">
       <div class="container">
         <h1>Rock Paper Scissors</h1>
-        <p class="flow-text">Can you defeat Ominini in a game of <strong>5 rounds?</strong></p>
+        <p class="flow-text">
+          Can you defeat Ominini in a game of <strong>5 rounds?</strong>
+        </p>
         <blockquote id="randomQuote">
           “If you know the enemy and know yourself, you need not fear the result
           of a hundred battles. If you know yourself but not the enemy, for
@@ -25,11 +27,12 @@
           neither the enemy nor yourself, you will succumb in every battle.”
           <p>―Sun-Tzu, The Art of War.</p>
         </blockquote>
-        <br/>
+        <br />
         <form id="player" class="input-field">
           <i class="material-icons prefix">mode_edit</i>
           <input
             placeholder="Please, enter your name."
+            autofocus
             id="name"
             type="text"
             class="materialize-textarea"
@@ -39,13 +42,17 @@
             <i class="material-icons right">send</i>
           </button>
         </form>
-        <br/>
+        <br />
       </div>
     </header>
-    <main id="main">
-      <div id="gameplay" class="container">
-        <div id="game"></div>
-        <div id="winner"></div>
+    <main id="main" class="container">
+      <div class="main-item" id="game"></div>
+      <div id="result" class="card horizontal">
+        <div class="card-content">
+          <p id="round" class="flow-text"></p>
+          <p id="score" class="flow-text"></p>
+          <p id="winner" class= "card-title"></p>
+        </div>
       </div>
     </main>
     <footer id="footer" class="page-footer">
