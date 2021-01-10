@@ -22,26 +22,28 @@ blockquote {
   color: var(--sec-col);
 }
 
-main {
+#main {
+  flex: 1 0 auto;
   display: flex;
-  min-height: 20vh;
   flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  gap: 5%;
+}
+
+#game {
+  display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 
-.main-item {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  min-width: 200px;
-  line-height: 1px;
-}
-
 #game a {
-  margin: 2.5px;
+  margin: 5px;
   background-color: var(--pri-col);
   color: var(--sec-col);
 }
+
 
 #copyright {
   justify-content: center;
@@ -50,5 +52,5 @@ main {
 #footer {
   bottom: 0;
   background-color: var(--pri-col);
-  border-top: 2.5px solid var(--sec-col);
+  border-top: 5px solid var(--sec-col);
 }

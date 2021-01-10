@@ -3,6 +3,22 @@ let player = 0;
 let ominini = 0;
 let playerName = "";
 
+function clearDOM() {
+  const clearGame = document.querySelector("#game");
+  clearGame.innerHTML = "";
+  let clearResults = document.querySelector("#round");
+  clearResults.innerHTML = "";
+  clearResults = document.querySelector("#score");
+  clearResults.innerHTML = "";
+  clearResults = document.querySelector("#winner");
+  clearResults.innerHTML = "";
+  clearResults = document.querySelector("#newGame");
+  clearResults.classList.remove("btn");
+  clearResults.innerHTML = "";
+  clearResults = document.querySelector("#resultCard");
+  clearResults.classList.remove("card-content");
+}
+
 function computerPlay() {
   const plays = ["rock", "paper", "scissors"]; // options
   return plays[Math.floor(Math.random() * 3)]; // return a random element from plays array
@@ -75,9 +91,12 @@ function playerOptions() {
             break;
         }
         const round = document.querySelector("#round");
-        round.textContent = `Round ${i}/5 : ${winner}`;
+        const card = document.querySelector("#resultCard");
+        card.classList.add("card-content");
+
         const score = document.querySelector("#score");
-        score.textContent = `${playerName} ${player} : ${ominini} Ominini`;
+        score.textContent = `${playerName} ${player} : ${ominini} OMININI`;
+        round.textContent = `Round ${i}/5 : ${winner}`;
         i++;
       }
       if (i == 6) {
@@ -89,7 +108,7 @@ function playerOptions() {
 
 function gameplay() {
   if (i < 5 && playerName != "") {
-    console.log(playerName)
+    console.log(playerName);
     playerOptions();
   } else if (i == 6) {
     i++;
@@ -100,8 +119,20 @@ function gameplay() {
     } else {
       gameWinner = "It's a draw";
     }
+    const round = document.querySelector("#round");
+    round.textContent = "";
     const winner = document.querySelector("#winner");
     winner.textContent = `Final Result: ${gameWinner}`;
+    const newGame = document.querySelector("#newGame");
+    newGame.classList.add("btn");
+    newGame.textContent = "Play Again";
+    newGame.onclick = function () {
+      i = 1;
+      player = 0;
+      ominini = 0;
+      clearDOM();
+      gameplay();
+    };
   }
 }
 
@@ -113,8 +144,10 @@ submit.onclick = function () {
   } else {
     playerName = playerName.toUpperCase();
   }
+  clearDOM();
+  i = 1;
+  player = 0;
+  ominini = 0;
   gameplay();
   return false;
 };
-
-
